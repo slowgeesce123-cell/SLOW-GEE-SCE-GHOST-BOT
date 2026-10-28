@@ -6,7 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 10000
 
 app.get('/', (req, res) => {
-  res.send('<h1>SLOW-GEE-SCE GHOST BOT 👻 IS ALIVE</h1><p>Cypher X Style - Powered by SLOW GEE</p>')
+  res.send('<h1>SLOW-GEE-SCE GHOST BOT 👻 IS ALIVE</h1><p>YOUR BOT YOUR SERVER - CYPHER X STYLE</p>')
 })
 app.listen(PORT, () => console.log('SLOW-GEE GHOST LIVE ON ' + PORT))
 
@@ -28,28 +28,29 @@ async function startBot() {
     }, 4000)
   }
 
-  // BOT ITASERVE HIZI:
+  // COMMANDS - HII NDIO ILIPOTEA KWAKO
   sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]
     if (!m.message || m.key.fromMe) return
     const body = m.message.conversation || m.message.extendedTextMessage?.text || ''
     if (!body.startsWith('.')) return
-
     const cmd = body.slice(1).split(' ')[0].toLowerCase()
     const from = m.key.remoteJid
 
-    // 1. MENU - Ita-serve menu ya commands zote
     if (cmd === 'menu') {
-      await sock.sendMessage(from, { text: `*SLOW-GEE GHOST MENU 👻 - CYPHER X STYLE*\n\n👻 .alive - Bot iko alive?\n👻 .ghost - Ghost mode\n👻 .owner - Owner info\n👻 .ping - Speed\n👻 .sc - Script\n👻 .sticker - Picha to sticker\n👻 .tagall - Tag group yote\n\n*POWERED BY SLOW GEE SCE*` }, { quoted: m })
+      await sock.sendMessage(from, { text: `*SLOW-GEE GHOST MENU 👻*\n\n.alive - Bot alive?\n.ghost - Ghost mode\n.owner - Owner\n.ping - Speed\n.sc - Script\n\n*YOUR BOT YOUR SERVER*` }, { quoted: m })
     }
     if (cmd === 'alive') {
-      await sock.sendMessage(from, { text: '*SLOW-GEE GHOST IS ALIVE* 👻🔥\nBot inafanya kazi 100%\nCypher X Edition' }, { quoted: m })
+      await sock.sendMessage(from, { text: '*SLOW-GEE GHOST IS ALIVE 👻🔥*\nYOUR BOT YOUR SERVER!' }, { quoted: m })
     }
     if (cmd === 'ghost') {
-      await sock.sendMessage(from, { text: '👻 GHOST MODE ON... SLOW GEE IS WATCHING YOU...' }, { quoted: m })
+      await sock.sendMessage(from, { text: '👻 GHOST MODE ON - SLOW GEE IS HERE' }, { quoted: m })
     }
     if (cmd === 'owner') {
-      await sock.sendMessage(from, { text: '*OWNER: SLOW GEE SCE*\nNumber: 254791536079\nGhost Bot Cypher X' }, { quoted: m })
+      await sock.sendMessage(from, { text: '*OWNER: SLOW GEE SCE*\n254791536079' }, { quoted: m })
+    }
+    if (cmd === 'ping') {
+      await sock.sendMessage(from, { text: 'Pong! 🏓 Fast!' }, { quoted: m })
     }
   })
 }
