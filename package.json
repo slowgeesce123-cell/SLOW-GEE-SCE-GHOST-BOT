@@ -1,7 +1,7 @@
 {
   "name": "slow-gee-owner",
-  "main": "pair.js",
-  "scripts": { "start": "node pair.js" },
+  "main": "Pair.js",
+  "scripts": { "start": "node Pair.js" },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.8",
     "pino": "^8.16.0",
